@@ -23,9 +23,7 @@ syntax on
 highlight Normal guifg=Black guibg=#ffefd5
 
 set showcmd
-set mouse=a
 set formatoptions=t
-"set textwidth=70
 set encoding=utf-8
 set termencoding=latin1
 set fileformat=unix
@@ -33,21 +31,20 @@ set fileformat=unix
 set guifont=Courier\ New:h10,Courier,Lucida\ Console,Letter\ Gothic,
  \Arial\ Alternative,Bitstream\ Vera\ Sans\ Mono,OCR\ A\ Extended
 set nowrap
-set shiftwidth=2
+"set textwidth=70
 set visualbell
 set noerrorbells
 set number
-set autoindent
 set ruler
-set expandtab
 "set whichwrap=<,>,h,l
 set guioptions=bgmrL
 set backspace=2
 set history=50
-"set backup
+set nobackup
 set wildmenu
 set nrformats=
 set foldlevelstart=99
+
 if has("unix")
   set shcf=-ic
 endif
@@ -96,10 +93,39 @@ function! CleanClose(tosave)
   exe "bd".todelbufNr
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indentation
+set shiftwidth=2
+set autoindent
+set expandtab
 
-""""
-" mouse wheel to scroll (see http://vimdoc.sourceforge.net/htmldoc/scroll.html#scroll-mouse-wheel)
-:map <ScrollWheelUp> <C-Y>
-:map <S-ScrollWheelUp> <C-U>
-:map <ScrollWheelDown> <C-E>
-:map <S-ScrollWheelDown> <C-D>
+:autocmd FileType make set noexpandtab " no expand for makefiles
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" avoid autoindent
+" see http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+" see http://amix.dk/blog/viewEntry/19083
+noremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+" groovyness in Insert mode (lets you paste and keep on typing)
+" This blows away i_CTRL-V though (see :help i_CTRL-V)
+imap <C-v> <Esc><C-v>a
+
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" my custom key map
+map <F3> :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mouse support
+
+set mouse=a
+
+" scroll with mouse wheel
+" @see http://vimdoc.sourceforge.net/htmldoc/scroll.html
+map <ScrollWheelUp> <C-Y>
+map <S-ScrollWheelUp> <C-U>
+map <ScrollWheelDown> <C-E>
+map <S-ScrollWheelDown> <C-D>
