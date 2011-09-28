@@ -119,6 +119,8 @@ set showmode
 " groovyness in Insert mode (lets you paste and keep on typing)
 " This blows away i_CTRL-V though (see :help i_CTRL-V)
 imap <C-v> <Esc><C-v>a
+set go-=a
+set clipboard-=unnamed
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
