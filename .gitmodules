@@ -31,3 +31,9 @@
 [submodule "bundle/jshint"]
 	path = bundle/jshint
 	url = https://github.com/manalang/jshint.vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
