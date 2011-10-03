@@ -23,6 +23,8 @@ set formatoptions=t
 set fileformats=unix,dos,mac " favorite fileformats
 set encoding=utf-8           " set default-encoding to utf-8
 set termencoding=utf-8
+set term=$TERM
+set shell=bash
 "set termencoding=latin1
 "set guifont=courier_new:h10
 set guifont=Courier\ New:h10,Courier,Lucida\ Console,Letter\ Gothic,
@@ -39,6 +41,8 @@ set backspace=2
 set history=50
 set noswapfile                 " turn off backups and files
 set nobackup                   " Don't keep a backup file
+set nowritebackup
+set backupdir=~/.vim/backup,/tmp
 set wildmenu
 set nrformats=
 set foldlevelstart=99
@@ -70,6 +74,7 @@ call pathogen#infect()
 " The next two lines ensure that the ~/.vim/bundle/ system works
 silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
+filetype plugin on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " close buffer without close window view
@@ -100,9 +105,11 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentation
+" see http://vimcasts.org/episodes/tabs-and-spaces/
 set expandtab       "Use softtabstop spaces instead of tab characters for indentation
-set shiftwidth=2    "Indent by 4 spaces when using >>, <<, == etc.
-set softtabstop=2   "Indent by 4 spaces when pressing <TAB>
+set shiftwidth=2    "Indent by 2 spaces when using >>, <<, == etc.
+set softtabstop=2   "Indent by 2 spaces when pressing <TAB>
+set tabstop=2
 
 set autoindent      "Keep indentation from previous line
 set smartindent     "Automatically inserts indentation in some cases
@@ -110,8 +117,22 @@ set cindent         "Like smartindent, but stricter and more customisable
 
 if has ("autocmd")
   " File type detection. Indent based on filetype. Recommended.
+  filetype on
   filetype plugin indent on
-  autocmd FileType make set noexpandtab " no expand for makefiles
+
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+   
+  " Customisations based on house-style (arbitrary)
+  "autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  "autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType php setlocal ts=4 sts=4 sw=4 expandtab
+   
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+  
 endif
 
 " Remove trailing whitespaces and ^M chars
@@ -137,8 +158,8 @@ set pastetoggle=<F2>
 " groovyness in Insert mode (lets you paste and keep on typing)
 " This blows away i_CTRL-V though (see :help i_CTRL-V)
 imap <C-v> <Esc><C-v>a
-set go-=a
-set clipboard-=unnamed
+" set go-=a
+" set clipboard-=unnamed
 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -214,4 +235,31 @@ function! StatusLine()
         return res
 endfunction
 
-set statusline=%{StatusLine()}%=[%{&fileformat}:%{&fileencoding}:%{&filetype}]\ %l,%c/%vv\ %P " statusline
+set statusline=%{StatusLine()}
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%=[%{&fileformat}:%{&fileencoding}:%{&filetype}]\ %l,%c/%vv\ %P " statusline
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Show invisible
+" see http://vimcasts.org/episodes/show-invisibles/
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Syntastic
+
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
