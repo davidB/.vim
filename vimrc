@@ -13,9 +13,6 @@
 
 set nocompatible " must be first line
 
-syntax on
-highlight Normal guifg=Black guibg=#ffefd5
-
 set showcmd
 set showmode
 
@@ -75,6 +72,14 @@ call pathogen#infect()
 silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
 filetype plugin on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" syntax colors
+syntax on
+highlight Normal guifg=Black guibg=#ffefd5
+"set background=dark
+"colorscheme solarized
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " close buffer without close window view
