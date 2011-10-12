@@ -1,0 +1,7 @@
+tags
+*~
+*.swp
+.VimballRecord
+undofiles/*
+projects/*
+.netrwhist
