@@ -111,6 +111,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentation
 " see http://vimcasts.org/episodes/tabs-and-spaces/
+
 set expandtab       "Use softtabstop spaces instead of tab characters for indentation
 set shiftwidth=2    "Indent by 2 spaces when using >>, <<, == etc.
 set softtabstop=2   "Indent by 2 spaces when pressing <TAB>
@@ -138,11 +139,12 @@ if has ("autocmd")
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
   
+
+  " Remove trailing whitespaces and ^M chars
+  " for alternate implementation see http://vimcasts.org/episodes/tidying-whitespace/
+  autocmd FileType c,cpp,java,scala,php,js,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
 endif
-
-" Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,scala,php,js,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste
 "
