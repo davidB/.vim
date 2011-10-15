@@ -76,9 +76,11 @@ filetype plugin on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax colors
 syntax on
-highlight Normal guifg=Black guibg=#ffefd5
-"set background=dark
+"highlight Normal guifg=Black guibg=#ffefd5
+set background=dark
+highlight clear
 "colorscheme solarized
+colorscheme elflord
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
