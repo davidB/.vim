@@ -170,7 +170,21 @@ imap <C-v> <Esc><C-v>a
 " set go-=a
 " set clipboard-=unnamed
 
-"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" bubble(move) text
+" http://vimcasts.org/episodes/bubbling-text/
+" use vim-unimpaire
+
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " my custom key map
 map <F3> :NERDTreeToggle<CR>
