@@ -150,11 +150,22 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste
 "
+" to use system/x11 clipboard check "vim --version |grep '+xterm_clipboard'"
+" else try to install gvim (on archlinux it install a vim version with
+" +xterm_clipboard) or try to use xclip (see key mapping below)
+"
+"
 " yank/paste to/from clipboard
-nnoremap gpc "+p
-vnoremap gyc "+y
+"nnoremap gpc "+p
+"vnoremap gyc "+y
 
-" Yank from the cursor to the end of the line, to be consistent with C and D.
+set clipboard=unnamedplus
+
+" if use xclip
+"vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
+"map <Insert> :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR> 
+
+"Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
 "
@@ -164,11 +175,6 @@ nnoremap Y y$
 noremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" groovyness in Insert mode (lets you paste and keep on typing)
-" This blows away i_CTRL-V though (see :help i_CTRL-V)
-imap <C-v> <Esc><C-v>a
-" set go-=a
-" set clipboard-=unnamed
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
