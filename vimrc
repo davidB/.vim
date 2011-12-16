@@ -65,9 +65,12 @@ map <F8> gg"+yG
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin
 
-" use pathogen http://www.vim.org/scripts/script.php?script_id=2332
+" use pathogen
+" @see http://www.vim.org/scripts/script.php?script_id=2332
+
 " runtime! autoload/pathogen.vim
 call pathogen#infect()
+
 " The next two lines ensure that the ~/.vim/bundle/ system works
 silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
@@ -85,7 +88,7 @@ colorscheme elflord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " close buffer without close window view
-" see http://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application
+" @see http://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application
 "
 map fc <Esc>:call CleanClose(1)
 
@@ -112,7 +115,7 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentation
-" see http://vimcasts.org/episodes/tabs-and-spaces/
+" @see http://vimcasts.org/episodes/tabs-and-spaces/
 
 set expandtab       "Use softtabstop spaces instead of tab characters for indentation
 set shiftwidth=2    "Indent by 2 spaces when using >>, <<, == etc.
@@ -154,11 +157,13 @@ endif
 " else try to install gvim (on archlinux it install a vim version with
 " +xterm_clipboard) or try to use xclip (see key mapping below)
 "
-"
+" @see http://vim.wikia.com/wiki/Accessing_the_system_clipboard
+
 " yank/paste to/from clipboard
 "nnoremap gpc "+p
 "vnoremap gyc "+y
 
+" @see http://vimdoc.sourceforge.net/htmldoc/options.html#%27clipboard%27
 set clipboard=unnamedplus
 
 " if use xclip
@@ -168,10 +173,10 @@ set clipboard=unnamedplus
 "Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
-"
+
 " avoid autoindent
-" see http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
-" see http://amix.dk/blog/viewEntry/19083
+" @see http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+" @see http://amix.dk/blog/viewEntry/19083
 noremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
@@ -179,7 +184,7 @@ set pastetoggle=<F2>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " bubble(move) text
-" http://vimcasts.org/episodes/bubbling-text/
+" @see http://vimcasts.org/episodes/bubbling-text/
 " use vim-unimpaire
 
 " Bubble single lines
@@ -272,7 +277,7 @@ set statusline+=%=[%{&fileformat}:%{&fileencoding}:%{&filetype}]\ %l,%c/%vv\ %P 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Show invisible
-" see http://vimcasts.org/episodes/show-invisibles/
+" @see http://vimcasts.org/episodes/show-invisibles/
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
