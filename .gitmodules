@@ -46,3 +46,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-haxe"]
+	path = bundle/vim-haxe
+	url = git://github.com/MarcWeber/vim-haxe.git
