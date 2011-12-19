@@ -76,6 +76,11 @@ silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
 filetype plugin on
 
+"set runtimepath+=~/.vim/vam
+"call vam#ActivateAddons(["snipmate","vim-haxe"])
+call vam#ActivateAddons(["vim-haxe"])
+"call scriptmanager#Activate(["vim-haxe"])
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax colors
 syntax on
