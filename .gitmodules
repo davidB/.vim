@@ -49,3 +49,6 @@
 [submodule "bundle/vim-haxe"]
 	path = bundle/vim-haxe
 	url = git://github.com/MarcWeber/vim-haxe.git
+[submodule "bundle/vim-addon-manager"]
+	path = bundle/vim-addon-manager
+	url = git://github.com/MarcWeber/vim-addon-manager.git
