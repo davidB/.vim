@@ -7,6 +7,7 @@
 " *
 " * https://github.com/spf13/spf13-vim
 " * https://github.com/jceb/vimrc
+" * http://electronicvendor.com/what-is-in-your-vimrc/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
@@ -156,6 +157,10 @@ if has ("autocmd")
 
   " auto compile on save (poor solution vs :make or syntastic
   "autocmd BufWritePost,FileWritePost *.coffee :silent !coffee -c <afile>
+
+  " Automatically cd into the directory that the file is in
+  "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+  set autochdir
 
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
