@@ -154,6 +154,9 @@ if has ("autocmd")
   " for alternate implementation see http://vimcasts.org/episodes/tidying-whitespace/
   autocmd FileType c,cpp,java,scala,php,js,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
+  " auto compile on save (poor solution vs :make or syntastic
+  "autocmd BufWritePost,FileWritePost *.coffee :silent !coffee -c <afile>
+
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste
