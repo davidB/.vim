@@ -310,3 +310,12 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" special function
+function! CleanEOL()
+  :%s///g
+  :%s///g
+  :%s/\[K//g
+  :%s///g
+endf
