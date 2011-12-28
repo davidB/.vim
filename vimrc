@@ -79,7 +79,7 @@ filetype plugin on
 
 "set runtimepath+=~/.vim/vam
 "call vam#ActivateAddons(["snipmate","vim-haxe"])
-call vam#ActivateAddons(["vim-haxe"])
+call vam#ActivateAddons(["vim-haxe", "FuzzyFinder", "unimpaired"])
 "call scriptmanager#Activate(["vim-haxe"])
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

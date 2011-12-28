@@ -5,3 +5,19 @@ tags
 undofiles/*
 projects/*
 .netrwhist
+
+# plugins added buy vim-addon-manager
+bundle/snipmate
+bundle/tlib
+bundle/vim-addon-actions
+bundle/vim-addon-background-cmd
+bundle/vim-addon-completion
+bundle/vim-addon-goto-thing-at-cursor
+bundle/vim-addon-manager-known-repositories
+bundle/vim-addon-mw-utils
+bundle/vim-addon-swfmill
+bundle/vim-addon-views
+bundle/FuzzyFinder
+bundle/L9
+bundle/unimpaired
+
