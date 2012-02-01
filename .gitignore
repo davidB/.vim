@@ -7,6 +7,7 @@ projects/*
 .netrwhist
 
 # plugins added buy vim-addon-manager
+vim-addons
 bundle/snipmate
 bundle/tlib
 bundle/vim-addon-actions
