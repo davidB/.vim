@@ -338,6 +338,14 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tags (code navigation)
+" @see http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks/741486#741486
+"set tags+=tags;$HOME
+set tags=./tags;/ 
+" Alt-right/left to navigate forward/backward in the tags stack
+"map <M-Left> <C-T>
+"map <M-Right> <C-]>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Syntastic
