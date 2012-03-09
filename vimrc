@@ -247,7 +247,7 @@ nmap gV `[v`]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " my custom key map
-map <F3> :NERDTreeToggle<CR>
+map <F8> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mouse support
@@ -344,8 +344,8 @@ highlight SpecialKey guifg=#4a4a59
 "set tags+=tags;$HOME
 set tags=./tags;/ 
 " Alt-right/left to navigate forward/backward in the tags stack
-"map <M-Left> <C-T>
-"map <M-Right> <C-]>
+map <F3> <C-T>
+map <S-F3> <C-]>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Syntastic
