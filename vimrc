@@ -117,7 +117,8 @@ call SetupVAM()
 " See BUGS sections below [*]
 " Vim 7.0 users see BUGS section [3]
 
-call vam#ActivateAddons(["vim-haxe", "FuzzyFinder", "unimpaired", "The_NERD_tree", "Syntastic", "Source_Explorer_srcexpl.vim", "Solarized", "snipmate", "SuperTab_continued.", "indexer.tar.gz_", "project.tar.gz", "vimprj", "DfrankUtil"])
+call vam#ActivateAddons(["vim-haxe", "FuzzyFinder", "unimpaired", "The_NERD_tree", "Syntastic", "Source_Explorer_srcexpl.vim", "snipmate", "SuperTab_continued.", "indexer.tar.gz_", "project.tar.gz", "vimprj", "DfrankUtil"])
+"call vam#ActivateAddons(["Solarized"])
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax colors
