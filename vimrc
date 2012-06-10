@@ -7,6 +7,7 @@
 " * https://github.com/spf13/spf13-vim
 " * https://github.com/jceb/vimrc
 " * http://electronicvendor.com/what-is-in-your-vimrc/
+" * http://nvie.com/posts/how-i-boosted-my-vim/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
@@ -15,6 +16,7 @@ set nocompatible " must be first line
 
 set showcmd
 set showmode
+set showmatch     " set show matching parenthesis
 
 set formatoptions=t
 set fileformats=unix,dos,mac " favorite fileformats
@@ -32,6 +34,7 @@ set visualbell
 set noerrorbells
 set number
 set ruler
+set hidden "hide buffer instead of close them that you can have unwritten changes to a file and open a new file
 "set whichwrap=<,>,h,l
 set guioptions=bgmrL
 set backspace=2
@@ -43,6 +46,9 @@ set backupdir=~/.vim/backup,/tmp
 set wildmenu
 set nrformats=
 set foldlevelstart=99
+
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
 
 if has("unix")
   set shcf=-ic
@@ -187,6 +193,7 @@ set tabstop=2
 set autoindent      "Keep indentation from previous line
 set smartindent     "Automatically inserts indentation in some cases
 set cindent         "Like smartindent, but stricter and more customisable
+set copyindent      "Copy the previous indentation on autoindenting
 
 if has ("autocmd")
   " File type detection. Indent based on filetype. Recommended.
