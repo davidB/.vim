@@ -126,7 +126,7 @@ call vam#ActivateAddons(["fugitive"])
 call vam#ActivateAddons(["unimpaired", "Syntastic", "The_NERD_Commenter", "Source_Explorer_srcexpl.vim", "snipmate", "SuperTab_continued.", "closetag"])
 " Lang specifics
 call vam#ActivateAddons(["vim-haxe"])
-" Color
+" ColorScheme
 call vam#ActivateAddons(["Solarized", "Mustang2"])
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
