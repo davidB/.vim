@@ -1,4 +1,3 @@
-
 " Windows:  $VIM/_vimrc (original)
 " *n*x   :  ~/.vimrc
 "
@@ -117,8 +116,9 @@ call SetupVAM()
 " See BUGS sections below [*]
 " Vim 7.0 users see BUGS section [3]
 
-call vam#ActivateAddons(["vim-haxe", "FuzzyFinder", "unimpaired", "The_NERD_tree", "Syntastic", "Source_Explorer_srcexpl.vim", "snipmate", "SuperTab_continued.", "indexer.tar.gz_", "project.tar.gz", "vimprj", "DfrankUtil", "fugitive"])
-"call vam#ActivateAddons(["Solarized"])
+call vam#ActivateAddons(["vim-haxe", "FuzzyFinder", "unimpaired", "The_NERD_tree", "Syntastic", "Source_Explorer_srcexpl.vim", "snipmate", "SuperTab_continued.", "indexer.tar.gz_", "project.tar.gz", "vimprj", "DfrankUtil", "fugitive", "closetag"])
+" add NERDCommenter to toggle comment line,...
+call vam#ActivateAddons(["Solarized"])
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax colors
