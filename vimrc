@@ -109,6 +109,7 @@ fun SetupVAM()
   " ..ActivateAddons(["github:user/repo", .. => github://user/repo
   " Also see section "2.2. names of addons and addon sources" in VAM's documentation
 endfun
+
 call SetupVAM()
 " experimental: run after gui has been started (gvim) [3]
 " option1: au VimEnter * call SetupVAM()
@@ -116,18 +117,35 @@ call SetupVAM()
 " See BUGS sections below [*]
 " Vim 7.0 users see BUGS section [3]
 
-call vam#ActivateAddons(["vim-haxe", "FuzzyFinder", "unimpaired", "The_NERD_tree", "Syntastic", "Source_Explorer_srcexpl.vim", "snipmate", "SuperTab_continued.", "indexer.tar.gz_", "project.tar.gz", "vimprj", "DfrankUtil", "fugitive", "closetag"])
-" add NERDCommenter to toggle comment line,...
-call vam#ActivateAddons(["Solarized"])
+" File/Buffer navigation
+" ctrlp ~ FuzzyFinder
+call vam#ActivateAddons(["ctrlp", "The_NERD_tree", "indexer.tar.gz_", "project.tar.gz", "vimprj", "DfrankUtil", "ZoomWin"])
+" SCM
+call vam#ActivateAddons(["fugitive"])
+" File edit (multi-lang)
+call vam#ActivateAddons(["unimpaired", "Syntastic", "The_NERD_Commenter", "Source_Explorer_srcexpl.vim", "snipmate", "SuperTab_continued.", "closetag"])
+" Lang specifics
+call vam#ActivateAddons(["vim-haxe"])
+" Color
+call vam#ActivateAddons(["Solarized", "Mustang2"])
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax colors
-syntax on
-"highlight Normal guifg=Black guibg=#ffefd5
+set t_Co=256 " for in gnome terminal (like terminator)
 set background=dark
-highlight clear
-"colorscheme solarized
-colorscheme elflord
+
+if &t_Co >= 256 || has("gui_running")
+  colorscheme Mustang
+  "colorscheme elflord
+  "colorscheme solarized
+  "let g:solarized_termcolors=256
+endif
+if &t_Co > 2 || has("gui_running")
+  " switch syntax highlighting on, when the terminal has colors
+  syntax on
+  "highlight Normal guifg=Black guibg=#ffefd5
+  "highlight clear
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -249,7 +267,8 @@ nmap gV `[v`]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " my custom key map
 map <F8> :NERDTreeToggle<CR>
-
+" <c-w>o : the current window zooms into a full screen (ZoomWin)
+" <c-w>o again: the previous set of windows is restored (ZoomWin)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mouse support
 
