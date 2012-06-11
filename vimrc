@@ -141,7 +141,7 @@ set t_Co=256 " for in gnome terminal (like terminator)
 set background=dark
 
 if &t_Co >= 256 || has("gui_running")
-  colorscheme Mustang
+  colorscheme mustang
   "colorscheme elflord
   "colorscheme solarized
   "let g:solarized_termcolors=256
