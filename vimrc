@@ -397,6 +397,24 @@ let g:tagbar_type_coffee = {
       \ ],
       \ }
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin CtrlP
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_root_markers = ['target']
+
+let g:ctrlp_user_command = {
+  \  'types': {
+  \    1: ['.git/', 'cd %s && git ls-files'],
+  \    2: ['.hg/', 'hg --cwd %s locate -I .'],
+  \  }
+  \}
+"  \  'fallback': 'find %s -type f'
+"let g:ctrlp_open_new_file = 'v'
+
+set wildignore+=*/tmp/*,*.so,target/*,*.class
+set wildignore+=*.swp,*.zip,*.gz
+set wildignore+=*.exe
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " special function
 function! CleanEOL()
