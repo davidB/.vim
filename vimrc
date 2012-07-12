@@ -399,8 +399,10 @@ let g:tagbar_type_coffee = {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin CtrlP
+" https://github.com/kien/ctrlp.vim/
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_root_markers = ['target']
+let g:ctrlp_root_markers = ['target', '.git', '.hg', '.svn', '.bzr', '_darcs', 'project']
 
 let g:ctrlp_user_command = {
   \  'types': {
