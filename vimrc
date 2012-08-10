@@ -272,8 +272,16 @@ vmap <C-Down> ]egv
 nmap gV `[v`]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" find
+map <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+:noautocmd vimgrep /{pattern}/[flags] {file(s)}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " my custom key map
 map <F8> :NERDTreeToggle<CR>
+noremap <M-2> :cp<CR>
+noremap <M-3> :cn<CR>
+noremap <M-4> :cl<CR>
 " <c-w>o : the current window zooms into a full screen (ZoomWin)
 " <c-w>o again: the previous set of windows is restored (ZoomWin)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
